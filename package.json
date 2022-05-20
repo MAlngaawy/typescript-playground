@@ -1,0 +1,23 @@
+{
+  "name": "typescript-playground",
+  "version": "1.0.0",
+  "description": "typescript playground project",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc" : "tsc sandbox.ts -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAlngaawy/typescript-playground.git"
+  },
+  "author": "Nag3awy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MAlngaawy/typescript-playground/issues"
+  },
+  "homepage": "https://github.com/MAlngaawy/typescript-playground#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
