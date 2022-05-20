@@ -61,3 +61,57 @@ ninja = { name: 'yoshi', age: 25 };
 console.log(ninja);
 ninja = { name: 25, age: 'yoshi' };
 console.log(ninja);
+/**
+ * ________________________________ FUNCTION ___________________________*
+ */
+var greet; // You can spicify function type py wtite it by capital F
+greet = function () {
+    console.log("Greet, it's work");
+};
+// function argument type can be optional like this
+var optionalArg = function (a, b, c) {
+    return a + b;
+};
+optionalArg(15, 20, "10");
+// and it can have a default value
+var defaultArg = function (a, b, c) {
+    if (c === void 0) { c = false; }
+    console.log("".concat(a, " is a peace of ship ").concat(b, " and ").concat(c));
+};
+defaultArg(10, "25");
+defaultArg(10, "25", true);
+// You can spicify the function return value type like this
+var stricReturn = function (a) {
+    return a.length;
+};
+console.log(stricReturn("Lolll Ya Man"));
+var greetUsingAliases = function (user) {
+    return "userName: ".concat(user.name, " and it's id ").concat(user.uid);
+};
+var greetUsingAliaseAgain = function (user) {
+    return "userName: ".concat(user.name, " and it's id ").concat(user.uid);
+};
+greetUsingAliaseAgain({ name: "Sr", uid: 15 });
+greetUsingAliases({ name: "Sr", uid: "Still work" });
+/** You Can spicify more in function */
+// let greet: Function;
+// example 1
+var greeting; // void means return nothing
+greeting = function (name, greeting) {
+    console.log("".concat(name, " says ").concat(greeting));
+};
+// example 2
+var calc; // return number
+calc = function (numOne, numTwo, action) {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else { // without else it will be error becauese it will return undefined wich isn't a number
+        return numOne - numTwo;
+    }
+};
+// example 3
+var logDetails; // with object
+logDetails = function (ninja) {
+    console.log("".concat(ninja.name, " is ").concat(ninja.age, " years old"));
+};
