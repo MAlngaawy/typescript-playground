@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc" : "tsc sandbox.ts -w"
+    "tsc" : "tsc -w"
   },
   "repository": {
     "type": "git",

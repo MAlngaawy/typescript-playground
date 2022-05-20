@@ -1,3 +1,4 @@
+"use strict";
 // Type script uses stric types but Javascript don't
 /** Variables stric types ==> Can't chage it to another type */
 var myName = "Mohammed";
