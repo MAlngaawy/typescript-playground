@@ -1,0 +1,1 @@
+## This is a simple repo just for learning typescript
