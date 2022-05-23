@@ -1,4 +1,6 @@
 import { Invoice } from './classes/Invoices.js'; // (.js) because it will work on the configerd files in the public folder 
+import { Payment } from './classes/Payment.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
 
 /**  Access Elements */
 // const anchor = document.querySelector("a")!; // the (!) said : i know that this element has already exect, so don't show an error when i access it
@@ -12,13 +14,18 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
-  console.log(
-    type.value, 
-    tofrom.value, 
-    details.value, 
-    amount.valueAsNumber // to access it as a number not string
-  );
+  let doc: HasFormatter; // this will just be an object with hasformatter interface
+  if(type.value === "invoice") {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+  }
+
+  console.log(doc)
 });
+
+
+
 
 /**Classes in typescript */
 
@@ -32,8 +39,6 @@ invoices.push(invOne)
 invoices.push(invTwo);
 // invoices.push("Lol") // -------- CAN'T
 // invoices.push({ name: 'shaun' }); // -------- CAN'T
-
-console.log(invoices);
 
 /** Interfaces in Typescript */
 

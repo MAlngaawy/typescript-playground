@@ -1,5 +1,6 @@
+import { HasFormatter } from "../interfaces/HasFormatter.js";
 
-export class Invoice {
+export class Invoice implements HasFormatter { // Make sure that this class will have the formatter function included in the interface file
   /*
   // all values are public by default
   readonly client: string; // ((you (can read) inside and outside BUT you (can't edit) nither inside or outside))
@@ -20,7 +21,7 @@ export class Invoice {
     public amount: number
   ){}
 
-  format() {
+  format() { // you must have this function because of the interface implementation
     return `${this.client} owes £${this.amount} for ${this.details}`;
   }
 }
