@@ -1,6 +1,7 @@
 import { Invoice } from './classes/Invoices.js'; // (.js) because it will work on the configerd files in the public folder 
 import { Payment } from './classes/Payment.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 
 /**  Access Elements */
 // const anchor = document.querySelector("a")!; // the (!) said : i know that this element has already exect, so don't show an error when i access it
@@ -11,6 +12,9 @@ const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+const ul = document.querySelector("ul")!
+const list = new ListTemplate(ul)
+
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
@@ -20,8 +24,14 @@ form.addEventListener('submit', (e: Event) => {
   } else {
     doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
   }
+  
+  list.render(doc, type.value, "end")
+  
+  // delte the previose values
+  details.value = ""
+  amount.value = ""
+  tofrom.value = ""
 
-  console.log(doc)
 });
 
 

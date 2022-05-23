@@ -1,5 +1,6 @@
 import { Invoice } from './classes/Invoices.js'; // (.js) because it will work on the configerd files in the public folder 
 import { Payment } from './classes/Payment.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 /**  Access Elements */
 // const anchor = document.querySelector("a")!; // the (!) said : i know that this element has already exect, so don't show an error when i access it
 const form = document.querySelector(".new-item-form"); // Now i can access it as form element and use all form's prototypes here
@@ -8,6 +9,8 @@ const type = document.querySelector('#type');
 const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+const ul = document.querySelector("ul");
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc; // this will just be an object with hasformatter interface
@@ -17,7 +20,11 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, "end");
+    // delte the previose values
+    details.value = "";
+    amount.value = "";
+    tofrom.value = "";
 });
 /**Classes in typescript */
 // classes
